@@ -23,8 +23,8 @@ To create a python program using brute force method of searching for the given s
 ## Program:
 
 
-### Developed by:Asin Vardhini R
-### Register Number: 212222100007
+### Developed by: Pranavesh Saikumar
+### Register Number: 212223040149
 
 ```
 def match(string,sub):
