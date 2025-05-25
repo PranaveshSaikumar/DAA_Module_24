@@ -24,12 +24,37 @@ To Solve Travelling Sales man Problem for the following graph.
 ### Developed by: Pranavesh Saikumar
 ### Register Number:  212223040149
 ```
-def tsp_cost(tsp):
-    return min(sum(tsp[i][j] for i, j in zip(path, path[1:] + path[:1])) for path in permutations(range(len(tsp))))
-
+from sys import maxsize
 from itertools import permutations
-tsp = [[-1, 30, 25, 10], [15, -1, 20, 40], [10, 20, -1, 25], [30, 10, 20, -1]]
-print("Minimum Cost is :",tsp_cost(tsp))
+V = 4
+ 
+
+def travellingSalesmanProblem(graph, s):
+ 
+    #Write your code
+    vertex = [i for i in range(V) if i  != s]
+    min_path = maxsize
+    next_perm = permutations(vertex)
+    
+    for p in next_perm:
+        curr = 0
+        k = s
+        
+        for i in p:
+            curr += graph[k][i]
+            k = i
+        curr += graph[k][s]
+        min_path = min(min_path, curr)
+        
+    return min_path
+ 
+ 
+
+if __name__ == "__main__":
+ 
+    graph = [[0, 10, 15, 20], [10, 0, 35, 25], [15, 35, 0, 30], [20, 25, 30, 0]]
+    s = 0
+    print(travellingSalesmanProblem(graph, s))
 ```
 
 ## Output :
